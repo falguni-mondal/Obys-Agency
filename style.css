@@ -1,0 +1,287 @@
+@font-face {
+    font-family: plain;
+    src: url('assets/fonts/plain-regular-webfont.woff');
+}
+@font-face {
+    font-family: plain-l;
+    src: url('assets/fonts/plain-light-webfont.woff');
+}
+@font-face {
+    font-family: italic;
+    src: url('assets/fonts/silkserif-regularitalic-webfont.woff');
+}
+@font-face {
+    font-family: italic-l;
+    src: url('assets/fonts/silkserif-lightitalic-webfont.woff');
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: url('assets/img/cursor.png'), auto;
+    font-family: plain-l;
+    color: #fff;
+    user-select: none;
+}
+*::-webkit-scrollbar{
+    display: none;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+    background: #0b0b0b;
+    cursor: none;
+}
+#loader{
+    height: 100%;
+    width: 100%;
+    background: #0b0b0b;
+    position: fixed;
+    z-index: 999;
+    cursor: none;
+    padding: 6vw;
+}
+#loader .line{
+    height: fit-content;
+    overflow: hidden;
+    display: flex;
+    cursor: none;
+}
+#loader .line:first-child{
+    padding-left: 6vw;
+}
+#loader .line h1{
+    font-size: 7.3vw;
+    text-transform: uppercase;
+    line-height: 7.5vw;
+    cursor: none;
+}
+.line .loading{
+    width: 20%;
+    cursor: none;
+}
+.line .loading h5{
+    font-family: italic-l;
+    font-size: 3.4vw;
+    font-weight: 500;
+    cursor: none;
+}
+.line .loading span{
+    font-family: italic-l;
+    display: inline-block;
+    width: 5vw;
+    cursor: none;
+}
+.line .now{
+    font-family: italic;
+    -webkit-text-stroke: 0.00001vw rgb(255, 255, 255);
+    color: transparent;
+    cursor: none;
+}
+/*.......................... NAVIGATION BAR .........................*/
+.container{
+    background: #151515;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+.container .main-header{
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 3.55vw 4.75vw;
+}
+.main-header  .header-left{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 10%;
+    position: relative;
+    z-index: 1000;
+}
+.header-left .logo svg{
+    height: 1.66rem;
+}
+.navicon svg rect{
+    transition: all 0.1s ease;
+}
+.main-header  .header-right{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    width: 75%;
+    height: 30px;
+}
+.header-right .obys-heading h6{
+    font-size: 1.075vw;
+    font-weight: 400;
+    line-height: 1.15vw;
+}
+.header-right nav{
+    display: flex;
+    gap: 2.35rem;
+}
+.header-right nav a{
+    text-decoration: none;
+    font-size: 0.93rem;
+}
+/*................... HIDDEN NAVIGATION .................*/
+.main-header .navigation-container{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: -100vh;
+    left: 0;
+    background: #151515;
+    z-index: 999;
+    padding: 4vw;
+    overflow: scroll;
+}
+.nav-wrapper{
+    display: flex;
+    height: 82vh;
+    overflow: auto;
+}
+.navigation-container .left-nav{
+    width: 63.3%;
+    height: fit-content;
+    padding-top: 8.7vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    margin-left: 0.5vw;
+}
+.left-nav .nav-line{
+    height: 88px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.left-nav .nav-option{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 7.5vw;
+    height: 88px;
+    width: 100%;
+    letter-spacing: -1px;
+    font-family: plain;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+.navigation-container .right-socials{
+    display: flex;
+    flex-direction: column;
+    gap: 4vw;
+    padding-top: 4.2vw;
+    width: 14%;
+}
+.right-socials .social-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.right-socials .option-heading{
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 2vw;
+}
+.right-socials .scroller-container{
+    overflow: hidden;
+    display: inline-block;
+    height: 30px;
+}
+.right-socials .link-scroller{
+    width: fit-content;
+}
+.right-socials .social-link, .right-socials .dummy-link{
+    font-size: 1.6rem;
+    text-decoration: none;
+    line-height: 1.8rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.right-socials .address p{
+    font-size: 1.6rem;
+    line-height: 1.7rem;
+}
+.right-socials .mail .link-underline{
+    text-decoration: underline;
+}
+/*.............................. MAIN PAGE .............................*/
+#intro-section{
+    height: 100vh;
+    width: 100vw;
+    padding: 0px 5vw;
+    padding-top: 14vw;
+    display: flex;
+    justify-content: center;
+}
+.intro{
+    display: flex;
+    padding-left: 6vw;
+}
+.section-counter{
+    margin-right: 3vw;
+}
+.section-counter span{
+    font-family: italic;
+    font-size: 3.2vw;
+    font-weight: 500;
+}
+.intro-title-h1 .title-line-container{
+    display: block;
+    height: fit-content;
+    overflow: hidden;
+}
+.title-line-container .title-line{
+    height: fit-content;
+}
+.intro-title-h1 .word{
+    font-family: plain;
+    font-size: 7.5vw;
+    text-transform: uppercase;
+    line-height: 7.6vw;
+    font-weight: 500;
+    margin-right: 15px;
+}
+.intro-title-h1 .hover-word{
+    margin-right: 50px;
+    text-decoration: underline;
+    text-decoration-thickness: 8px;
+    margin-bottom: 5px;
+    position: relative;
+}
+.intro-title-h1 .hover-word:last-child::after{
+    content: '/';
+    position: absolute;
+    font-size: 7.5vw;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -40px;
+}
+#intro-section .say-scroll{
+    position: absolute;
+    bottom: 5vw;
+    left: 6vw;
+    height: 30px;
+    overflow: hidden;
+}
+.say-scroll span{
+    /* display: block; */
+    height: 100%;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    color: #555;
+    font-weight: 600;
+    transform: translateY(-25px);
+}
