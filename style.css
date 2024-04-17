@@ -18,20 +18,21 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: url('assets/img/cursor.png'), auto;
     font-family: plain-l;
     color: #fff;
     user-select: none;
+    cursor: none;
 }
 *::-webkit-scrollbar{
     display: none;
 }
-
 html, body{
     height: 100%;
     width: 100%;
+    overflow: hidden;
+}
+body{
     background: #0b0b0b;
-    cursor: none;
 }
 #loader{
     height: 100%;
@@ -80,12 +81,22 @@ html, body{
     cursor: none;
 }
 /*.......................... NAVIGATION BAR .........................*/
-.container{
+body .container{
     background: #151515;
     position: relative;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+}
+body .container #cursor{
+    position: fixed;
+    z-index: 1;
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+    border: 1px solid #ffffff;
+    opacity: 0.5;
+    background: transparent;
 }
 .container .main-header{
     position: fixed;
@@ -142,7 +153,7 @@ html, body{
     background: #151515;
     z-index: 999;
     padding: 4vw;
-    overflow: scroll;
+    overflow: hidden;
 }
 .nav-wrapper{
     display: flex;
@@ -217,13 +228,22 @@ html, body{
     text-decoration: underline;
 }
 /*.............................. MAIN PAGE .............................*/
-#intro-section{
+.main{
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    z-index: 2;
+}
+.page{
     height: 100vh;
     width: 100vw;
+}
+#intro-section{
     padding: 0px 5vw;
     padding-top: 14vw;
     display: flex;
     justify-content: center;
+    position: relative;
 }
 .intro{
     display: flex;
@@ -276,7 +296,6 @@ html, body{
     overflow: hidden;
 }
 .say-scroll span{
-    /* display: block; */
     height: 100%;
     font-size: 0.95rem;
     display: flex;
@@ -284,4 +303,39 @@ html, body{
     color: #555;
     font-weight: 600;
     transform: translateY(-25px);
+}
+
+/*......................VIDEO-SECTION ...................*/
+#video-section{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+#video-section .video-container{
+    width: 72vw;
+    height: 72vh;
+    position: relative;
+    padding: 1vh 1vw;
+}
+.video-container video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.video-container .play-pause-btn{
+    position: absolute;
+    width: 11vw;
+    height: 11vw;
+    background: #ffa63d;
+    border-radius: 50%;
+    top: -15%;
+    left: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.video-container .play-pause-btn i{
+    font-size: 2.5vw;
 }
