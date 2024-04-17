@@ -5,8 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Obys Agency</title>
+    <!-- FAVICON -->
     <link rel="shortcut icon" href="assets/favicon/android-chrome-512x512.png" type="image/x-icon">
+    <!-- REMIXICON -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- LOCOMOTIVE -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <!-- SHERY JS -->
+    <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css" />
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -26,9 +33,10 @@
         </div>
     </div>
     <div class="container">
+        <div id="cursor"></div>
         <header class="main-header">
             <div class="header-left">
-                <div class="navicon">
+                <div class="navicon magnet">
                     <svg class="menu-opener" width="12" height="12" viewBox="0 0 12 12" fill="none">
                         <rect y="10" width="2" height="2" fill="currentColor"></rect>
                         <rect y="5" width="2" height="2" fill="currentColor"></rect>
@@ -84,9 +92,9 @@
                     <h6>Agency</h6>
                 </div>
                 <nav>
-                    <a href="works.html">Works</a>
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contacts</a>
+                    <a href="works.html" class="magnet">Works</a>
+                    <a href="about.html" class="magnet">About</a>
+                    <a href="contact.html" class="magnet">Contacts</a>
                 </nav>
             </div>
             <div class="navigation-container">
@@ -143,7 +151,7 @@
                                     <a href="" class="dummy-link">Youtube</a>
                                     <a href="" class="social-link">Youtube</a>
                                 </div>
-                            </span>                            
+                            </span>
                         </div>
                         <div class="address">
                             <h5 class="option-heading">
@@ -160,13 +168,13 @@
                                     <a href="" class="dummy-link link-underline">info@obys.agency</a>
                                     <a href="" class="social-link">info@obys.agency</a>
                                 </div>
-                            </span>           
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-        <main>
+        <main class="main">
             <section class="page" id="intro-section">
                 <div class="intro">
                     <div class="section-counter">
@@ -201,23 +209,38 @@
                 </div>
                 <span class="say-scroll">
                     <span id="slide1">Scroll</span>
-                    <!-- <span id="slide2">Scroll</span> -->
                 </span>
+            </section>
+            <section class="page" id="video-section">
+                <div class="video-container">
+                    <video src="https://obys.agency/wp-content/uploads/2022/11/Obys-Showreel-2022.mp4"></video>
+                    <div class="play-pause-btn">
+                        <i class="ri-play-fill play-btn"></i>
+                        <!-- <i class="ri-pause-line pause-btn"></i> -->
+                    </div>
+                </div>
             </section>
         </main>
     </div>
 
 
+    <!-- LOCOMOTIVE -->
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
         integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- GSAP SCROLLTRIGGER -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
         integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- GSAP CUSTOM EASE -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"
         integrity="sha512-4a56NRIrhn/ePBdSSNfwsmL+eZt/uCXEb7s+3B8tg/tDiywDMKb5u2QCdhsYQtEkUMPGE5GUVbZYqgKeRzJ7yQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- SHERY.JS -->
+    <script type="text/javascript" src="https://unpkg.com/sheryjs/dist/Shery.js"></script>
+    <!-- MY SCRIPT -->
     <script src="script.js"></script>
 </body>
 
