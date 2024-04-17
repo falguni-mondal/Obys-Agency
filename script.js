@@ -1,13 +1,17 @@
 const counter = document.querySelector('.counter');
 let loadingCount = 0;
-let navLinkScroller = document.querySelectorAll('.navigation-container .link-scroller');
-let navigation = document.querySelectorAll('.navigation-container .nav-option');
-let navIcon = document.querySelector('.navicon');
-let leftNav= document.querySelector('.left-nav')
-let tl = gsap.timeline();
+const navLinkScroller = document.querySelectorAll('.navigation-container .link-scroller');
+const navigation = document.querySelectorAll('.navigation-container .nav-option');
+const navIcon = document.querySelector('.navicon');
+const leftNav= document.querySelector('.left-nav')
+const cursor = document.querySelector('#cursor');
+const magnetTarget = document.querySelectorAll('.magnet');
+const brandVideo = document.querySelector('.video-container');
+const playBtn = document.querySelector('.play-pause-btn');
+const tl = gsap.timeline();
 
 
-function locomotiv(){
+function locomotive(){
     gsap.registerPlugin(ScrollTrigger);
 
 // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
@@ -37,11 +41,11 @@ ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
 ScrollTrigger.refresh();
 }
-locomotiv();
+locomotive();
 
 function smoothScroll(){
     const scroll = new LocomotiveScroll({
-        el: document.querySelector('main'),
+        el: document.querySelector('.main'),
         smooth: true
     });
 }
@@ -98,6 +102,41 @@ function loader() {
         repeat: -1
     })
 }
+
+function cursorAnimation(){
+    document.addEventListener('mousemove', (e)=>{
+        gsap.to(cursor,{
+            x: e.clientX - 18,
+            y: e.clientY - 18,
+            duration: 0.0
+        })
+    })
+    magnetTarget.forEach((elem)=>{
+        elem.addEventListener('mouseenter', ()=>{
+            gsap.to(cursor,{
+                width: '4vw',
+                height: '4vw',
+                duration: 0.2
+            })
+        })
+        elem.addEventListener('mouseleave', ()=>{
+            gsap.to(cursor,{
+                width: '3vw',
+                height: '3vw',
+                duration: 0.2
+            })
+        })
+    })
+}
+cursorAnimation();
+
+function makeMagnetic(){
+    Shery.makeMagnet(".magnet",{
+        ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+        duration: 1,
+      });
+}
+makeMagnetic();
 
 function navIconFunc(){
     let toggle = 0;
@@ -206,3 +245,33 @@ navLinkScroller.forEach((elem)=>{
         })
     })
 })
+
+function videoPlay(){
+    brandVideo.addEventListener('mouseenter', ()=>{
+        gsap.to(cursor, {
+            scale: 0,
+            duration: 0.3
+        })
+    })
+    brandVideo.addEventListener('mousemove', (e)=>{
+        let strtX = (window.innerWidth * 70)/100;
+        let strtY = (window.innerHeight * 20)/100
+        gsap.to(playBtn,{
+            x: e.clientX - strtX,
+            y: e.clientY - strtY,
+            duration: 0.5
+        })
+    })
+    brandVideo.addEventListener('mouseleave', ()=>{
+        gsap.to(cursor, {
+            scale: 1,
+            duration: 0.3
+        })
+        gsap.to(playBtn,{
+            top: '-15%',
+            left: '60%',
+            duration: 0.1
+        })
+    })
+}
+videoPlay();
