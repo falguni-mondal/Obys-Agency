@@ -234,18 +234,16 @@ body .container #cursor{
     position: relative;
     z-index: 2;
 }
-.page{
+#intro-section{
     height: 100vh;
     width: 100vw;
-}
-#intro-section{
     padding: 0px 5vw;
     padding-top: 14vw;
     display: flex;
     justify-content: center;
     position: relative;
 }
-.intro{
+.section-intro{
     display: flex;
     padding-left: 6vw;
 }
@@ -257,15 +255,18 @@ body .container #cursor{
     font-size: 3.2vw;
     font-weight: 500;
 }
-.intro-title-h1 .title-line-container{
+.section-title-h1{
+    height: fit-content;
+}
+.section-title-h1 .title-line-container{
     display: block;
     height: fit-content;
     overflow: hidden;
 }
-.title-line-container .title-line{
+.section-title-h1 .title-line-container .title-line{
     height: fit-content;
 }
-.intro-title-h1 .word{
+.section-title-h1 .word{
     font-family: plain;
     font-size: 7.5vw;
     text-transform: uppercase;
@@ -273,14 +274,24 @@ body .container #cursor{
     font-weight: 500;
     margin-right: 15px;
 }
-.intro-title-h1 .hover-word{
+.section-title-h1 .hover-word{
     margin-right: 50px;
     text-decoration: underline;
     text-decoration-thickness: 8px;
     margin-bottom: 5px;
     position: relative;
+    transition: all 0.5s ease;
 }
-.intro-title-h1 .hover-word:last-child::after{
+.section-title-h1 .hover-word:hover{
+    text-decoration: none;
+    -webkit-text-stroke: 1px white;
+    color: transparent;
+}
+.section-title-h1 .hover-word:hover::after{
+    color: white;
+    -webkit-text-stroke: 0px;
+}
+.section-title-h1 .hover-word:last-child::after{
     content: '/';
     position: absolute;
     font-size: 7.5vw;
@@ -312,12 +323,19 @@ body .container #cursor{
     align-items: center;
     height: 100vh;
     width: 100vw;
+    padding-top: 2vw;
 }
 #video-section .video-container{
     width: 72vw;
     height: 72vh;
     position: relative;
     padding: 1vh 1vw;
+}
+.video-container img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 .video-container video{
     height: 100%;
@@ -335,7 +353,141 @@ body .container #cursor{
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 3;
 }
 .video-container .play-pause-btn i{
     font-size: 2.5vw;
+}
+
+/*................... PROJECT SECTION .................*/
+#project-section{
+    min-height: 100vh;
+    width: 100%;
+    background: #1f1f1f;
+}
+
+/*.................... ABOUT SECTION ...................*/
+#about-section{
+    width: 100%;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+#about-section .section-intro{
+    padding-left: 21vw;
+    padding-right: 5vw;
+    width: 100%;
+}
+.section-intro .main-content{
+    width: 100%;
+}
+#about-section .section-title{
+    width: 100%;
+}
+#about-section .underline{
+    height: 2.5vw;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.651);
+}
+#about-section .section-title-h1{
+    width: 100%;
+}
+#about-section .about{
+    margin-top: 4vw;
+}
+#about-section .about .line{
+    height: 3vw;
+    width: 100%;
+    overflow-y: hidden;
+    font-size: 2.5vw;
+    line-height: 2.5vw;
+}
+#about-section .line .text{
+    display: inline-block;
+}
+
+#about-section .about-img{
+    display: flex;
+    width: 100%;
+    margin-top: 60px;
+    gap: 30px;
+}
+
+#about-section .img{
+    width: 50%;
+    height: 90vh;
+}
+#about-section .img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+#about-section .img-txt{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    font-size: 0.93rem;
+    gap: 30px;
+    width: 30%;
+    line-height: 1.4rem;
+}
+
+#about-section .marque-sec{
+    margin-top: 60px;
+}
+#about-section .marque-sec .heading{
+    padding: 0px 5vw 0px 27vw;
+}
+#about-section #underline2{
+    margin-bottom: 30px;
+}
+#about-section .marque-sec span{
+    font-size: 0.93rem;
+}
+#marque-container{
+    margin-top: 7vw;
+    width: 100%;
+    overflow-x: hidden;
+}
+#marque-container .marque, #marque-container .marque span{
+    font-size: 7.5vw;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px #ebebeb;
+    white-space: nowrap;
+    line-height: 8vw;
+}
+#marque-container .marque span{
+    font-family: italic;
+}
+
+#marque-container #marque1{
+    animation: slideLtoR 12s infinite linear;
+}
+#marque-container #marque2{
+    animation: slideRtoL 12s infinite linear;
+}
+#marque-container #marque3{
+    animation: slideLtoR 12s infinite linear;
+}
+#marque-container #marque4{
+    animation: slideRtoL 12s infinite linear;
+}
+@keyframes slideLtoR {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-50%);
+    }
+}
+@keyframes slideRtoL {
+    from{
+        transform: translateX(-50%);
+    }
+    to{
+        transform: translateX(0%);
+    }
 }
