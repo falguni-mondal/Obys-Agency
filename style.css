@@ -116,12 +116,18 @@ body .container #cursor{
     width: 10%;
     position: relative;
     z-index: 1000;
+    cursor: auto;
 }
 .header-left .logo svg{
     height: 1.66rem;
+    cursor: auto;
+}
+.header-left .navicon{
+    cursor: auto;
 }
 .navicon svg rect{
     transition: all 0.1s ease;
+    cursor: auto;
 }
 .main-header  .header-right{
     display: flex;
@@ -144,21 +150,23 @@ body .container #cursor{
     font-size: 0.93rem;
 }
 /*................... HIDDEN NAVIGATION .................*/
-.main-header .navigation-container{
+.navigation-container{
     width: 100vw;
     height: 100vh;
     position: absolute;
     top: -100vh;
     left: 0;
     background: #151515;
-    z-index: 999;
+    z-index: 98;
     padding: 4vw;
     overflow: hidden;
+    cursor: auto;
 }
 .nav-wrapper{
     display: flex;
     height: 82vh;
     overflow: auto;
+    cursor: auto;
 }
 .navigation-container .left-nav{
     width: 63.3%;
@@ -168,6 +176,7 @@ body .container #cursor{
     flex-direction: column;
     gap: 1vw;
     margin-left: 0.5vw;
+    cursor: auto;
 }
 .left-nav .nav-line{
     height: 88px;
@@ -175,6 +184,13 @@ body .container #cursor{
     overflow: hidden;
     display: flex;
     align-items: center;
+    cursor: pointer;
+}
+.left-nav .nav-line a{
+    cursor: pointer;
+}
+.left-nav .nav-line span{
+    cursor: pointer;
 }
 .left-nav .nav-option{
     text-decoration: none;
@@ -187,45 +203,54 @@ body .container #cursor{
     font-weight: 500;
     display: flex;
     align-items: center;
+    cursor: auto;
 }
-.navigation-container .right-socials{
+.social-link-container{
     display: flex;
     flex-direction: column;
     gap: 4vw;
     padding-top: 4.2vw;
     width: 14%;
+    cursor: auto;
 }
-.right-socials .social-wrapper{
+.social-link-container .social-wrapper{
     display: flex;
     flex-direction: column;
+    cursor: auto;
 }
-.right-socials .option-heading{
+.social-link-container .option-heading{
     font-size: 1rem;
     font-weight: 400;
     margin-bottom: 2vw;
+    cursor: auto;
 }
-.right-socials .scroller-container{
+.social-link-container .scroller-container{
     overflow: hidden;
     display: inline-block;
     height: 30px;
+    cursor: pointer;
 }
-.right-socials .link-scroller{
+.social-link-container .link-scroller{
     width: fit-content;
+    cursor: pointer;
 }
-.right-socials .social-link, .right-socials .dummy-link{
+.social-link-container .social-link, .social-link-container .dummy-link{
     font-size: 1.6rem;
     text-decoration: none;
     line-height: 1.8rem;
     display: block;
     margin-bottom: 8px;
+    cursor: pointer;
 }
 
-.right-socials .address p{
+.social-link-container .address p{
     font-size: 1.6rem;
     line-height: 1.7rem;
+    cursor: auto;
 }
-.right-socials .mail .link-underline{
+.social-link-container .mail .link-underline{
     text-decoration: underline;
+    cursor: auto;
 }
 /*.............................. MAIN PAGE .............................*/
 .main{
@@ -421,6 +446,7 @@ body .container #cursor{
     width: 100%;
     object-fit: cover;
     object-position: center;
+    cursor: auto;
 }
 
 #about-section .img-txt{
@@ -490,4 +516,55 @@ body .container #cursor{
     to{
         transform: translateX(0%);
     }
+}
+
+/*................. FOOTER ..................*/
+footer{
+    display: flex;
+    width: 100vw;
+    padding-left: 21vw;
+    padding-right: 5vw;
+    margin-top: 10vw;
+}
+footer .main-content{
+    width: 100%;
+}
+footer .section-counter{
+    height: 7.5vw;
+    display: flex;
+    align-items: center;
+}
+footer .section-title-h1{
+    font-family: plain;
+    font-size: 7.5vw;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+footer .section-title-h1 i{
+    font-size: 9vw;
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+}
+footer .underline{
+    height: 1vw;
+    border-bottom: 1px solid white;
+}
+footer .social-link-container{
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 4vw;
+    padding-right: 8vw;
+    padding-top: 3vw;
+}
+footer .address{
+    padding: 0px 7vw;
+}
+footer .address p{
+    text-align: left;
+}
+footer .copyright{
+    padding: 3vw 0px;
 }
