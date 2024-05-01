@@ -1,6 +1,6 @@
 const counter = document.querySelector('.counter');
 let loadingCount = 0;
-const navLinkScroller = document.querySelectorAll('.navigation-container .link-scroller');
+const navLinkScroller = document.querySelectorAll('.link-scroller');
 const navigation = document.querySelectorAll('.navigation-container .nav-option');
 const navIcon = document.querySelector('.navicon');
 const leftNav= document.querySelector('.left-nav')
@@ -68,14 +68,14 @@ function loading(){
             counter.textContent = loadingCount++;
         }
         else {
-            loader();
+            homeAnime();
             clearInterval(loading);
         }
     }, 24)
 }
 loading();
 
-function loader() {
+function homeAnime() {
     tl.to('#loader', {
         opacity: 0,
         duration: 1.2
@@ -99,6 +99,16 @@ function loader() {
         duration: 2.5,
         ease: CustomEase.create("custom", "M0,0 C0,0 0.064,0.175 0.097,0.252 0.106,0.273 0.158,0.38 0.167,0.394 0.173,0.405 0.201,0.449 0.23,0.469 0.38,0.566 0.567,0.487 0.732,0.556 0.764,0.57 0.777,0.573 0.785,0.583 0.843,0.648 0.85,0.658 0.861,0.681 1,1 0.914,0.795 0.923,0.816 1.045,1.101 1,1 1,1 "),
         repeat: -1
+    })
+    gsap.to('.header-right', {
+        y: -200,
+        scrollTrigger: {
+            trigger: '.header-right',
+            scroller: 'main',
+            start: 'top: 95%',
+            end: 'top: 93%',
+            scrub: 3
+        }
     })
 }
 
@@ -243,7 +253,7 @@ navLinkScroller.forEach((elem)=>{
             duration: 0.8
         })
     })
-})
+});
 
 function videoPlay(){
     brandVideo.addEventListener('mouseenter', ()=>{
@@ -320,7 +330,7 @@ function aboutSection(){
     });
     gsap.from('#about-section .about-img',{
         opacity: 0,
-        duration: 0.8,
+        duration: 1,
         scrollTrigger:{
             trigger: '#about-section .about-img',
             scroller: '.main',
