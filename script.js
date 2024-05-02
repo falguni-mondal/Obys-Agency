@@ -285,6 +285,41 @@ function videoPlay(){
 }
 videoPlay();
 
+function project(){
+    gsap.from('#project-section .title-line',{
+        translateY: 90,
+        duration: 0.6,
+        scrollTrigger:{
+            trigger: '#project-section .title-line',
+            scroller: '.main',
+            start: 'top 75%',
+            end: 'top 60%'
+        }
+    });
+    gsap.from('#project-section #underline1',{
+        width: 0,
+        duration: 1,
+        scrollTrigger:{
+            trigger: '#project-section .title-line',
+            scroller: '.main',
+            start: 'top 75%',
+            end: 'top 60%'
+        }
+    });
+    gsap.from('#project-section .section-counter span',{
+        opacity: 0,
+        duration: 1,
+        delay: 0.5,
+        scrollTrigger:{
+            trigger: '#project-section .title-line',
+            scroller: '.main',
+            start: 'top 75%',
+            end: 'top 60%'
+        }
+    });
+}
+project();
+
 function aboutSection(){
     gsap.from('#about-section .title-line',{
         translateY: 90,
@@ -351,3 +386,27 @@ function aboutSection(){
     });
 }
 aboutSection();
+
+function footer(){
+    gsap.from('#foot-u1',{
+        width: 0,
+        duration: 1,
+        scrollTrigger: {
+            trigger: '#foot-u1',
+            scroller: 'main',
+            start: 'top: 90%',
+            end: 'top: 80%'
+        }
+    })
+    gsap.from('#foot-u2',{
+        width: 0,
+        duration: 1,
+        scrollTrigger: {
+            trigger: '#foot-u2',
+            scroller: 'main',
+            start: 'top: 90%',
+            end: 'top: 80%'
+        }
+    })
+}
+footer();
