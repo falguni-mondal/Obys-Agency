@@ -7,7 +7,8 @@ const leftNav= document.querySelector('.left-nav')
 const cursor = document.querySelector('#cursor');
 const magnetTarget = document.querySelectorAll('.magnet');
 const brandVideo = document.querySelector('.video-container');
-const playBtn = document.querySelector('.play-pause-btn');
+const videoCursor = document.querySelector('.play-pause-btn');
+const videoPlay = document.querySelector('.play-btn');
 const arrow = document.querySelectorAll('#project-section .arrow');
 const tl = gsap.timeline();
 
@@ -100,6 +101,17 @@ function homeAnime() {
         duration: 2.5,
         ease: CustomEase.create("custom", "M0,0 C0,0 0.064,0.175 0.097,0.252 0.106,0.273 0.158,0.38 0.167,0.394 0.173,0.405 0.201,0.449 0.23,0.469 0.38,0.566 0.567,0.487 0.732,0.556 0.764,0.57 0.777,0.573 0.785,0.583 0.843,0.648 0.85,0.658 0.861,0.681 1,1 0.914,0.795 0.923,0.816 1.045,1.101 1,1 1,1 "),
         repeat: -1
+    })
+    gsap.to('.say-scroll',{
+        opacity: 0,
+        duration: 0.3,
+        scrollTrigger: {
+            scroller: 'main',
+            trigger: '.say-scroll',
+            start: 'top: 140%',
+            end: 'top: 130%',
+            scrub: 1
+        }
     })
     gsap.to('.header-right', {
         y: -200,
@@ -256,20 +268,20 @@ navLinkScroller.forEach((elem)=>{
     })
 });
 
-function videoPlay(){
+function videoSection(){
     brandVideo.addEventListener('mouseenter', ()=>{
         gsap.to(cursor, {
             scale: 0,
             duration: 0.3
         })
-    })
-    brandVideo.addEventListener('mousemove', (e)=>{
-        let strtX = (window.innerWidth * 70)/100;
-        let strtY = (window.innerHeight * 20)/100
-        gsap.to(playBtn,{
-            x: e.clientX - strtX,
-            y: e.clientY - strtY,
-            duration: 0.5
+        brandVideo.addEventListener('mousemove', (e)=>{
+            let strtX = (window.innerWidth * 70)/100;
+            let strtY = (window.innerHeight * 20)/100
+            gsap.to(videoCursor,{
+                x: e.clientX - strtX,
+                y: e.clientY - strtY,
+                duration: 0.5
+            })
         })
     })
     brandVideo.addEventListener('mouseleave', ()=>{
@@ -277,14 +289,32 @@ function videoPlay(){
             scale: 1,
             duration: 0.3
         })
-        gsap.to(playBtn,{
+        gsap.to(videoCursor, {
             top: '-15%',
             left: '60%',
             duration: 0.1
         })
     })
+    let tgl = 1;
+    brandVideo.addEventListener('click', ()=>{
+        if(tgl === 1){
+            document.querySelector('.play-btn').style.display = 'none';
+            document.querySelector('.pause-btn').style.display = 'block';
+            brandVideo.querySelector('img').style.display = 'none';
+            brandVideo.querySelector('video').play();
+            tgl = 0;
+        }
+        else{
+            document.querySelector('.play-btn').style.display = 'block';
+            document.querySelector('.pause-btn').style.display = 'none';
+            brandVideo.querySelector('img').style.display = 'block';
+            brandVideo.querySelector('video').pause();
+            tgl = 1;
+        }
+
+    })
 }
-videoPlay();
+videoSection();
 
 function project(){
     gsap.from('#project-section .title-line',{
@@ -352,6 +382,36 @@ function project(){
                 ease: 'power2.out'
             })
         })
+    })
+    gsap.from('#project-section .under1',{
+        width: 0,
+        duration: 1,
+        scrollTrigger: {
+            scroller: 'main',
+            trigger: '#project-section .under1',
+            start: 'top: 80%',
+            end: 'top: 70%'
+        }
+    })
+    gsap.from('#project-section .under2',{
+        width: 0,
+        duration: 1,
+        scrollTrigger: {
+            scroller: 'main',
+            trigger: '#project-section .under2',
+            start: 'top: 95%',
+            end: 'top: 85%'
+        }
+    })
+    gsap.from('#project-section .under3',{
+        width: 0,
+        duration: 1,
+        scrollTrigger: {
+            scroller: 'main',
+            trigger: '#project-section .under3',
+            start: 'top: 80%',
+            end: 'top: 70%'
+        }
     })
 }
 project();
