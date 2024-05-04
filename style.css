@@ -99,7 +99,6 @@ body .container #cursor{
     background: transparent;
 }
 .container .main-header{
-    position: fixed;
     z-index: 99;
     top: 0;
     left: 0;
@@ -109,13 +108,17 @@ body .container #cursor{
     width: 100%;
     padding: 3.55vw 4.75vw;
 }
+.container .main-header>*{
+    position: fixed;
+    z-index: 2;
+}
 .main-header  .header-left{
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 10%;
     position: relative;
-    z-index: 1000;
+    z-index: 900;
     cursor: auto;
 }
 .header-left .logo svg{
@@ -133,7 +136,8 @@ body .container #cursor{
     display: flex;
     align-items: start;
     justify-content: space-between;
-    width: 75%;
+    width: 68%;
+    right: 5vw;
     height: 30px;
 }
 .header-right .obys-heading h6{
@@ -263,7 +267,7 @@ body .container #cursor{
     height: 100vh;
     width: 100vw;
     padding: 0px 5vw;
-    padding-top: 14vw;
+    padding-top: 5vw;
     display: flex;
     justify-content: center;
     position: relative;
@@ -348,7 +352,6 @@ body .container #cursor{
     align-items: center;
     width: 100vw;
     padding-top: 2vw;
-    margin-top: 17vh;
 }
 #video-section .video-container{
     width: 72vw;
@@ -379,9 +382,13 @@ body .container #cursor{
     justify-content: center;
     align-items: center;
     z-index: 3;
+    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 7.88854, 0, 1);
 }
 .video-container .play-pause-btn i{
     font-size: 2.5vw;
+}
+.video-container .pause-btn{
+    display: none;
 }
 
 /*................... PROJECT SECTION .................*/
