@@ -346,9 +346,9 @@ body .container #cursor{
     display: flex;
     justify-content: end;
     align-items: center;
-    height: 100vh;
     width: 100vw;
     padding-top: 2vw;
+    margin-top: 17vh;
 }
 #video-section .video-container{
     width: 72vw;
@@ -388,8 +388,163 @@ body .container #cursor{
 #project-section{
     min-height: 100vh;
     width: 100%;
+    margin-bottom: 30vw;
+    margin-top: 25vh;
+}
+#project-section .project-container{
+    width: 100%;
+    padding: 0px 5vw;
+    padding-top: 8vw;
+}
+#project-section .part{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+#project-section .arrow{
+    height: 23vw;
+    width: 23vw;
+    border-radius: 50%;
+    border: 2px solid #ffffff7c;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+#project-section .arrow .msg-bg{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    border-radius: 50%;
+    scale: 0;
+}
+#project-section .arrow .msg-bg p{
+    color: #000;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scale: 0;
+    opacity: 0;
+}
+#project-section .arrow svg{
+    height: 35%;
+    width: 35%;
+}
+#project-section #part1 .arrow{
+    bottom: 0;
+    right: 0;
+}
+#project-section .pro{
+    display: flex;
+    gap: 30px;
+}
+#project-section #pro1{
+    width: 23vw;
+}
+#project-section .pro-heading{
+    text-transform: uppercase;
+    font-size: 2.5vw;
+    margin-bottom: 2.7vw;
+    letter-spacing: 2px;
+    font-family: plain;
+    font-weight: 500;
+}
+#project-section #pro1 .img-container{
+    height: 65vh;
+}
+#project-section .img-container{
+    position: relative;
+    margin-bottom: 2vw;
+    width: 100%;
+}
+#project-section .img-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    object-position: center;
+    top: 0;
+    left: 0;
+}
+#project-section .pro-details{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 1.1vw;
+}
+#project-section .pro-details p{
+    width: 50%;
+}
+#project-section .pro-underline{
+    height: 5vh;
+    border-bottom: 2px solid #ffffffa9;
+}
+#project-section #pro2{
+    width: 32vw;
+}
+#project-section #pro2 .img-container{
+    height: 90vh;
 }
 
+/* PROJECT 3 & 4 */
+#project-section #part2 .arrow svg{
+    rotate: -45deg;
+}
+#project-section #part2 .arrow{
+    top: 30px;
+    left: 0;
+}
+#project-section #part2{
+    justify-content: end;
+}
+#project-section #pro3{
+    width: 30vw;
+    position: relative;
+    bottom: -20vh;
+}
+#project-section #pro3 .img-container{
+    height: 90vh;
+}
+#project-section #pro4{
+    width: 32vw;
+}
+#project-section #pro4 .img-container{
+    height: 90vh;
+}
+/* PROJECT 5 & 6 */
+#project-section #part3 .pro{
+    width: 100%;
+    justify-content: space-between;
+    gap: 0px;
+}
+#project-section #part3 .arrow svg{
+    rotate: -90deg;
+}
+#project-section #part3 .arrow{
+    bottom: -25vh;
+    right: 33vw;
+}
+#project-section #pro5{
+    width: 25vw;
+    position: relative;
+    top: -3vh;
+}
+#project-section #pro5 .img-container{
+    height: 70vh;
+}
+#project-section #pro6{
+    width: 30vw;
+    position: relative;
+    top: 25vh
+}
+#project-section #pro6 .img-container{
+    height: 90vh;
+}
 /*.................... ABOUT SECTION ...................*/
 #about-section{
     width: 100%;
