@@ -24,7 +24,6 @@
     box-sizing: border-box;
     font-family: plain-l;
     color: #fff;
-    user-select: none;
     cursor: none;
 }
 
@@ -36,7 +35,6 @@ html,
 body {
     height: 100%;
     width: 100%;
-    overflow: hidden;
 }
 
 body {
@@ -952,14 +950,83 @@ footer .copyright {
     }
 
     .main-header .header-left {
-        flex-direction: row-reverse;
         width: 100%;
         position: relative;
         z-index: 900;
-        cursor: auto;
     }
 
     .main-header .header-right {
+        display: none;
+    }
+
+    /*.............................. MAIN PAGE .............................*/
+    #intro-section {
+        height: fit-content;
+        padding: 8vh 5vw;
+        justify-content: start;
+    }
+
+    .section-intro {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .section-counter {
+        margin-bottom: 10px;
+    }
+
+    .section-counter span {
+        font-size: 4.5vw;
+    }
+
+    .section-title-h1 .word {
+        font-size: 9vw;
+        line-height: 10vw;
+        margin-right: 0px;
+        letter-spacing: -1px;
+    }
+
+    .section-title-h1 .hover-word {
+        margin-right: 20px;
+    }
+
+    .section-title-h1 .hover-word:last-child::after {
+        left: -20px;
+    }
+
+    #intro-section .say-scroll {
+        display: none;
+    }
+
+
+    /*......................VIDEO-SECTION ...................*/
+    #video-section {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        width: 100vw;
+        padding-top: 5vh;
+    }
+
+    #video-section .video-container {
+        width: 100%;
+        height: 40vh;
+        padding: 0;
+    }
+
+    .video-container .play-pause-btn {
+        width: 24vw;
+        height: 24vw;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .video-container .play-pause-btn i {
+        font-size: 4vw;
+    }
+
+    .video-container .pause-btn {
         display: none;
     }
 }
