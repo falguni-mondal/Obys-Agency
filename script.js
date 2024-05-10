@@ -3,7 +3,7 @@ let loadingCount = 0;
 const navLinkScroller = document.querySelectorAll('.link-scroller');
 const navigation = document.querySelectorAll('.navigation-container .nav-option');
 const navIcon = document.querySelector('.navicon');
-const leftNav= document.querySelector('.left-nav')
+const leftNav = document.querySelector('.left-nav')
 const cursor = document.querySelector('#cursor');
 const magnetTarget = document.querySelectorAll('.magnet');
 const brandVideo = document.querySelector('.video-container');
@@ -12,38 +12,48 @@ const arrow = document.querySelectorAll('#project-section .arrow');
 const tl = gsap.timeline();
 
 
-function locomotive(){
+function locomotive() {
     gsap.registerPlugin(ScrollTrigger);
 
     // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
-    
+
     const locoScroll = new LocomotiveScroll({
-      el: document.querySelector(".main"),
-      smooth: true
+        el: document.querySelector(".main"),
+        smooth: true,
+        reloadOnContextChange: true,
+        smoothMobile: 1,
+        smartphone: {
+            smooth: 1,
+            breakpoint: 767
+        },
+        tablet: {
+            smooth: 1,
+            breakpoint: 1024
+        }
     });
     // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
     locoScroll.on("scroll", ScrollTrigger.update);
-    
+
     // tell ScrollTrigger to use these proxy methods for the ".main" element since Locomotive Scroll is hijacking things
     ScrollTrigger.scrollerProxy(".main", {
-      scrollTop(value) {
-        return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-      }, // we don't have to define a scrollLeft because we're only scrolling vertically.
-      getBoundingClientRect() {
-        return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
-      },
-      // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
-      pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
+        scrollTop(value) {
+            return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+        }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+        getBoundingClientRect() {
+            return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+        },
+        // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+        pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
     });
     // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
     ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-    
+
     // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
-    ScrollTrigger.refresh();    
+    ScrollTrigger.refresh();
 }
 locomotive();
 
-function smoothScroll(){
+function smoothScroll() {
     const scroll = new LocomotiveScroll({
         el: document.querySelector('.main'),
         smooth: true
@@ -51,7 +61,7 @@ function smoothScroll(){
 }
 smoothScroll();
 
-function loading(){
+function loading() {
     gsap.from('.line h1', {
         y: 100,
         delay: 0.5,
@@ -63,7 +73,7 @@ function loading(){
         delay: 0.5,
         duration: 2
     })
-    
+
     let loading = setInterval(() => {
         if (loadingCount != 101) {
             counter.textContent = loadingCount++;
@@ -89,26 +99,30 @@ function homeAnime() {
         duration: 1,
         ease: "power4.inOut"
     })
-    gsap.from('.title-line',{
+    gsap.to('.navigation-container', {
+        display: 'block',
+        delay: 2.5
+    })
+    gsap.from('.title-line', {
         y: 90,
         delay: 2,
         duration: 0.8,
         stagger: 0.12
     })
-    gsap.to('.say-scroll #slide1',{
+    gsap.to('.say-scroll #slide1', {
         translateY: '22px',
         duration: 2.5,
         ease: CustomEase.create("custom", "M0,0 C0,0 0.064,0.175 0.097,0.252 0.106,0.273 0.158,0.38 0.167,0.394 0.173,0.405 0.201,0.449 0.23,0.469 0.38,0.566 0.567,0.487 0.732,0.556 0.764,0.57 0.777,0.573 0.785,0.583 0.843,0.648 0.85,0.658 0.861,0.681 1,1 0.914,0.795 0.923,0.816 1.045,1.101 1,1 1,1 "),
         repeat: -1
     })
-    gsap.to('.say-scroll',{
+    gsap.to('.say-scroll', {
         opacity: 0,
         duration: 0.3,
         scrollTrigger: {
             scroller: 'main',
             trigger: '.say-scroll',
-            start: 'top: 140%',
-            end: 'top: 130%',
+            start: 'top: 160%',
+            end: 'top: 150%',
             scrub: 1
         }
     })
@@ -124,24 +138,24 @@ function homeAnime() {
     })
 }
 
-function cursorAnimation(){
-    document.addEventListener('mousemove', (e)=>{
-        gsap.to(cursor,{
+function cursorAnimation() {
+    document.addEventListener('mousemove', (e) => {
+        gsap.to(cursor, {
             x: e.clientX - 18,
             y: e.clientY - 18,
             duration: 0.0
         })
     })
-    magnetTarget.forEach((elem)=>{
-        elem.addEventListener('mouseenter', ()=>{
-            gsap.to(cursor,{
+    magnetTarget.forEach((elem) => {
+        elem.addEventListener('mouseenter', () => {
+            gsap.to(cursor, {
                 width: '4vw',
                 height: '4vw',
                 duration: 0.2
             })
         })
-        elem.addEventListener('mouseleave', ()=>{
-            gsap.to(cursor,{
+        elem.addEventListener('mouseleave', () => {
+            gsap.to(cursor, {
                 width: '3vw',
                 height: '3vw',
                 duration: 0.2
@@ -151,29 +165,29 @@ function cursorAnimation(){
 }
 cursorAnimation();
 
-function makeMagnetic(){
-    Shery.makeMagnet(".magnet",{
+function makeMagnetic() {
+    Shery.makeMagnet(".magnet", {
         ease: "cubic-bezier(0.23, 1, 0.320, 1)",
         duration: 1,
-      });
+    });
 }
 makeMagnetic();
 
-function navIconFunc(){
+function navIconFunc() {
     let toggle = 0;
-    navIcon.addEventListener('click', ()=>{
+    navIcon.addEventListener('click', () => {
         let navIconDot = navIcon.querySelectorAll(' svg rect');
-        if(toggle === 0){
+        if (toggle === 0) {
             navIconDot[1].setAttribute('x', '5');
             navIconDot[3].setAttribute('y', '5');
             navIconDot[5].setAttribute('y', '5');
             navIconDot[7].setAttribute('x', '5');
-            gsap.to('.navigation-container',{
+            gsap.to('.navigation-container', {
                 top: 0,
                 duration: 0.8,
                 ease: 'power1.inOut'
             })
-            gsap.from(navigation,{
+            gsap.from(navigation, {
                 translateY: '88px',
                 duration: 0.5,
                 delay: 0.6,
@@ -181,18 +195,18 @@ function navIconFunc(){
             })
             toggle++;
         }
-        else{
+        else {
             navIconDot[1].setAttribute('x', '0');
             navIconDot[3].setAttribute('y', '10');
             navIconDot[5].setAttribute('y', '0');
             navIconDot[7].setAttribute('x', '10');
-            gsap.to('.navigation-container',{
+            gsap.to('.navigation-container', {
                 top: '100vh',
                 duration: 0.5,
                 delay: 0.2,
                 ease: 'power1.inOut'
             })
-            setTimeout(()=>{
+            setTimeout(() => {
                 document.querySelector('.navigation-container').style.top = '-100vh'
             }, 1000);
             toggle--;
@@ -201,23 +215,23 @@ function navIconFunc(){
 }
 navIconFunc();
 
-function navigationAnimation(){
-    navigation.forEach((elem)=>{
+function navigationAnimation() {
+    navigation.forEach((elem) => {
         let splitted = elem.textContent.split('');
-        elem.innerHTML='';
-        splitted.forEach((val)=>{
-            elem.innerHTML+=`<span class="italic-font">${val}</span>`
+        elem.innerHTML = '';
+        splitted.forEach((val) => {
+            elem.innerHTML += `<span class="italic-font">${val}</span>`
         })
-        elem.addEventListener('mouseenter',()=>{
+        elem.addEventListener('mouseenter', () => {
             elem.classList.add('hovered-nav');
             navItalicConversion();
         })
-        elem.addEventListener('mouseleave',()=>{
+        elem.addEventListener('mouseleave', () => {
             navplainConversion();
             elem.classList.remove('hovered-nav');
         })
     })
-    function navItalicConversion(){
+    function navItalicConversion() {
         gsap.to('.hovered-nav .italic-font', {
             opacity: 0,
             duration: 0.15,
@@ -233,7 +247,7 @@ function navigationAnimation(){
             stagger: 0.05
         })
     }
-    function navplainConversion(){
+    function navplainConversion() {
         gsap.to('.hovered-nav .italic-font', {
             opacity: 0,
             duration: 0.2,
@@ -252,14 +266,14 @@ function navigationAnimation(){
 }
 navigationAnimation();
 
-navLinkScroller.forEach((elem)=>{
-    elem.addEventListener('mouseenter',()=>{
+navLinkScroller.forEach((elem) => {
+    elem.addEventListener('mouseenter', () => {
         gsap.to(elem, {
             y: -37,
             duration: 0.8
         })
     })
-    elem.addEventListener('mouseleave',()=>{
+    elem.addEventListener('mouseleave', () => {
         gsap.to(elem, {
             y: 0,
             duration: 0.8
@@ -267,23 +281,23 @@ navLinkScroller.forEach((elem)=>{
     })
 });
 
-function videoSection(){
-    brandVideo.addEventListener('mouseenter', ()=>{
+function videoSection() {
+    brandVideo.addEventListener('mouseenter', () => {
         gsap.to(cursor, {
             scale: 0,
             duration: 0.3
         })
-        brandVideo.addEventListener('mousemove', (e)=>{
-            let strtX = (window.innerWidth * 70)/100;
-            let strtY = (window.innerHeight * 20)/100
-            gsap.to(videoCursor,{
+        brandVideo.addEventListener('mousemove', (e) => {
+            let strtX = (window.innerWidth * 70) / 100;
+            let strtY = (window.innerHeight * 20) / 100
+            gsap.to(videoCursor, {
                 x: e.clientX - strtX,
                 y: e.clientY - strtY,
                 duration: 0.5
             })
         })
     })
-    brandVideo.addEventListener('mouseleave', ()=>{
+    brandVideo.addEventListener('mouseleave', () => {
         gsap.to(cursor, {
             scale: 1,
             duration: 0.3
@@ -295,8 +309,8 @@ function videoSection(){
         })
     })
     let tgl = 1;
-    brandVideo.addEventListener('click', ()=>{
-        if(tgl === 1){
+    brandVideo.addEventListener('click', () => {
+        if (tgl === 1) {
             document.querySelector('.play-btn').style.display = 'none';
             document.querySelector('.pause-btn').style.display = 'block';
             brandVideo.querySelector('img').style.display = 'none';
@@ -307,7 +321,7 @@ function videoSection(){
             })
             tgl = 0;
         }
-        else{
+        else {
             document.querySelector('.play-btn').style.display = 'block';
             document.querySelector('.pause-btn').style.display = 'none';
             brandVideo.querySelector('img').style.display = 'block';
@@ -323,32 +337,32 @@ function videoSection(){
 }
 videoSection();
 
-function project(){
-    gsap.from('#project-section .title-line',{
+function project() {
+    gsap.from('#project-section .title-line', {
         translateY: 90,
         duration: 0.6,
-        scrollTrigger:{
+        scrollTrigger: {
             trigger: '#project-section .title-line',
             scroller: '.main',
             start: 'top 90%',
             end: 'top 80%'
         }
     });
-    gsap.from('#project-section #underline1',{
+    gsap.from('#project-section #underline1', {
         width: 0,
         duration: 1,
-        scrollTrigger:{
+        scrollTrigger: {
             trigger: '#project-section .title-line',
             scroller: '.main',
             start: 'top 90%',
             end: 'top 80%'
         }
     });
-    gsap.from('#project-section .section-counter span',{
+    gsap.from('#project-section .section-counter span', {
         opacity: 0,
         duration: 1,
         delay: 0.5,
-        scrollTrigger:{
+        scrollTrigger: {
             trigger: '#project-section .title-line',
             scroller: '.main',
             start: 'top 90%',
@@ -357,32 +371,32 @@ function project(){
     });
     Shery.imageEffect('#project-section .img-container', {
         style: 5,
-        config: {"a":{"value":0.46,"range":[0,30]},"b":{"value":-0.86,"range":[-1,1]},"zindex":{"value":"9996999","range":[-9999999,9999999]},"aspect":{"value":0.7962852956318561},"ignoreShapeAspect":{"value":true},"shapePosition":{"value":{"x":0,"y":0}},"shapeScale":{"value":{"x":0.5,"y":0.5}},"shapeEdgeSoftness":{"value":0,"range":[0,0.5]},"shapeRadius":{"value":0,"range":[0,2]},"currentScroll":{"value":0.9820790796383827},"scrollLerp":{"value":0.07},"gooey":{"value":false},"infiniteGooey":{"value":false},"growSize":{"value":4,"range":[1,15]},"durationOut":{"value":1,"range":[0.1,5]},"durationIn":{"value":1.5,"range":[0.1,5]},"displaceAmount":{"value":0.5},"masker":{"value":true},"maskVal":{"value":1.31,"range":[1,5]},"scrollType":{"value":0},"geoVertex":{"range":[1,64],"value":1},"noEffectGooey":{"value":true},"onMouse":{"value":1},"noise_speed":{"value":2.14,"range":[0,10]},"metaball":{"value":0.7,"range":[0,2]},"discard_threshold":{"value":0.68,"range":[0,1]},"antialias_threshold":{"value":0,"range":[0,0.1]},"noise_height":{"value":0.31,"range":[0,2]},"noise_scale":{"value":7.63,"range":[0,100]}},
+        config: { "a": { "value": 0.46, "range": [0, 30] }, "b": { "value": -0.86, "range": [-1, 1] }, "zindex": { "value": "9996999", "range": [-9999999, 9999999] }, "aspect": { "value": 0.7962852956318561 }, "ignoreShapeAspect": { "value": true }, "shapePosition": { "value": { "x": 0, "y": 0 } }, "shapeScale": { "value": { "x": 0.5, "y": 0.5 } }, "shapeEdgeSoftness": { "value": 0, "range": [0, 0.5] }, "shapeRadius": { "value": 0, "range": [0, 2] }, "currentScroll": { "value": 0.9820790796383827 }, "scrollLerp": { "value": 0.07 }, "gooey": { "value": false }, "infiniteGooey": { "value": false }, "growSize": { "value": 4, "range": [1, 15] }, "durationOut": { "value": 1, "range": [0.1, 5] }, "durationIn": { "value": 1.5, "range": [0.1, 5] }, "displaceAmount": { "value": 0.5 }, "masker": { "value": true }, "maskVal": { "value": 1.31, "range": [1, 5] }, "scrollType": { "value": 0 }, "geoVertex": { "range": [1, 64], "value": 1 }, "noEffectGooey": { "value": true }, "onMouse": { "value": 1 }, "noise_speed": { "value": 2.14, "range": [0, 10] }, "metaball": { "value": 0.7, "range": [0, 2] }, "discard_threshold": { "value": 0.68, "range": [0, 1] }, "antialias_threshold": { "value": 0, "range": [0, 0.1] }, "noise_height": { "value": 0.31, "range": [0, 2] }, "noise_scale": { "value": 7.63, "range": [0, 100] } },
         gooey: true
     })
-    arrow.forEach((val)=>{
+    arrow.forEach((val) => {
         const msgBg = val.querySelector('.msg-bg');
         const msg = msgBg.querySelector('p');
-        val.addEventListener('mouseenter', ()=>{
-            tl.to(msgBg,{
+        val.addEventListener('mouseenter', () => {
+            tl.to(msgBg, {
                 scale: 1,
                 duration: 0.45,
                 ease: 'power2.out'
             })
-            tl.to(msg,{
+            tl.to(msg, {
                 scale: 1,
                 opacity: 1,
                 duration: 0.45,
                 ease: 'power2.out'
             })
         })
-        val.addEventListener('mouseleave', ()=>{
-            gsap.to(msgBg,{
+        val.addEventListener('mouseleave', () => {
+            gsap.to(msgBg, {
                 scale: 0,
                 duration: 0.45,
                 ease: 'power2.out'
             })
-            gsap.to(msg,{
+            gsap.to(msg, {
                 scale: 0,
                 opacity: 0,
                 duration: 0.45,
@@ -390,7 +404,7 @@ function project(){
             })
         })
     })
-    gsap.from('#project-section .under1',{
+    gsap.from('#project-section .under1', {
         width: 0,
         duration: 1,
         scrollTrigger: {
@@ -400,7 +414,7 @@ function project(){
             end: 'top: 70%'
         }
     })
-    gsap.from('#project-section .under2',{
+    gsap.from('#project-section .under2', {
         width: 0,
         duration: 1,
         scrollTrigger: {
@@ -410,7 +424,7 @@ function project(){
             end: 'top: 85%'
         }
     })
-    gsap.from('#project-section .under3',{
+    gsap.from('#project-section .under3', {
         width: 0,
         duration: 1,
         scrollTrigger: {
@@ -423,53 +437,53 @@ function project(){
 }
 project();
 
-function aboutSection(){
-    gsap.from('#about-section .title-line',{
+function aboutSection() {
+    gsap.from('#about-section .title-line', {
         translateY: 90,
         duration: 0.6,
-        scrollTrigger:{
+        scrollTrigger: {
             trigger: '#about-section .title-line',
             scroller: '.main',
             start: 'top 90%',
             end: 'top 80%'
         }
     });
-    gsap.from('#about-section #underline1',{
+    gsap.from('#about-section #underline1', {
         width: 0,
         duration: 1,
-        scrollTrigger:{
+        scrollTrigger: {
             trigger: '#about-section .title-line',
             scroller: '.main',
             start: 'top 90%',
             end: 'top 80%'
         }
     });
-    gsap.from('#about-section .section-counter span',{
+    gsap.from('#about-section .section-counter span', {
         opacity: 0,
         duration: 1,
         delay: 0.5,
-        scrollTrigger:{
+        scrollTrigger: {
             trigger: '#about-section .title-line',
             scroller: '.main',
             start: 'top 90%',
             end: 'top 80%'
         }
     });
-    gsap.from('#about-section .text',{
+    gsap.from('#about-section .text', {
         y: 100,
         duration: 1,
         stagger: 0.1,
-        scrollTrigger:{
+        scrollTrigger: {
             trigger: '#about-section .text',
             scroller: '.main',
             start: 'top 100%',
             end: 'top 90%'
         }
     });
-    gsap.from('#about-section .about-img',{
+    gsap.from('#about-section .about-img', {
         opacity: 0,
         duration: 1,
-        scrollTrigger:{
+        scrollTrigger: {
             trigger: '#about-section .about-img',
             scroller: '.main',
             start: 'top 80%',
@@ -477,10 +491,10 @@ function aboutSection(){
             // markers: true
         }
     });
-    gsap.from('#about-section #underline2',{
+    gsap.from('#about-section #underline2', {
         width: 0,
         duration: 1,
-        scrollTrigger:{
+        scrollTrigger: {
             trigger: '#about-section #underline2',
             scroller: '.main',
             start: 'top 75%',
@@ -490,8 +504,8 @@ function aboutSection(){
 }
 aboutSection();
 
-function footer(){
-    gsap.from('footer .section-title-h1',{
+function footer() {
+    gsap.from('footer .section-title-h1', {
         opacity: 0,
         duration: 2,
         scrollTrigger: {
@@ -501,7 +515,7 @@ function footer(){
             end: 'top: 90%'
         }
     })
-    gsap.from('#foot-u1',{
+    gsap.from('#foot-u1', {
         width: 0,
         duration: 1,
         scrollTrigger: {
@@ -511,7 +525,7 @@ function footer(){
             end: 'top: 80%'
         }
     })
-    gsap.from('#foot-u2',{
+    gsap.from('#foot-u2', {
         width: 0,
         duration: 1,
         scrollTrigger: {
