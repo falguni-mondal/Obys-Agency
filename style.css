@@ -25,6 +25,7 @@
     font-family: plain-l;
     color: #fff;
     cursor: none;
+    user-select: none;
 }
 
 *::-webkit-scrollbar {
@@ -193,6 +194,7 @@ body .container #cursor {
     padding: 4vw;
     overflow: hidden;
     cursor: auto;
+    display: none;
 }
 
 .nav-wrapper {
@@ -386,7 +388,7 @@ body .container #cursor {
 
 #intro-section .say-scroll {
     position: absolute;
-    bottom: 5vw;
+    bottom: 15vw;
     left: 6vw;
     height: 30px;
     overflow: hidden;
@@ -1029,4 +1031,6 @@ footer .copyright {
     .video-container .pause-btn {
         display: none;
     }
+
+
 }
