@@ -834,6 +834,7 @@ footer {
     width: 100vw;
     padding-left: 21vw;
     padding-right: 5vw;
+    padding: 0px 5vw 8vw 21vw;
     margin-top: 10vw;
 }
 
@@ -1262,40 +1263,19 @@ footer .copyright {
         display: flex;
         flex-direction: column;
         width: 100vw;
-        padding: 0px 5vw;
+        padding: 5vw;
+        padding-bottom: 8vh;
         margin-top: 15vh;
     }
 
-    footer .main-content {
-        width: 100%;
-    }
 
     footer .section-title-h1 {
-        font-family: plain;
         font-size: 10vw;
-        text-transform: uppercase;
-        font-weight: 500;
-        display: flex;
-        align-items: center;
-        gap: 30px;
     }
 
-    footer .section-title-h1 i {
-        font-size: 9vw;
-        color: transparent;
-        -webkit-text-stroke: 1px white;
-    }
-
-    footer .underline {
-        height: 1vw;
-        border-bottom: 1px solid white;
-    }
 
     footer .social-link-container {
         flex-direction: column;
-        width: 100%;
-        margin-bottom: 4vw;
-        padding-right: 8vw;
         padding-top: 3vh;
         gap: 50px;
     }
