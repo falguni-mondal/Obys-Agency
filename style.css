@@ -1028,9 +1028,287 @@ footer .copyright {
         font-size: 4vw;
     }
 
-    .video-container .pause-btn {
+    /*................... PROJECT SECTION .................*/
+    #project-section {
+        min-height: 100vh;
+        width: 100%;
+        margin-bottom: 30vw;
+        margin-top: 25vh;
+    }
+
+    #project-section .project-container {
+        width: 100%;
+        padding: 0px 5vw;
+        padding-top: 10vh;
+    }
+
+    #project-section .part {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 8vh;
+    }
+
+    #project-section .arrow {
         display: none;
     }
 
+    #project-section .pro {
+        display: flex;
+        flex-direction: column;
+        gap: 8vh;
+        width: 100%;
+    }
 
+    #project-section #pro1 {
+        width: 100%;
+    }
+
+    #project-section .pro-heading {
+        font-size: 4vw;
+        margin-bottom: 4vh;
+    }
+
+    #project-section .img-container {
+        height: 65vh;
+    }
+
+    #project-section .img-container {
+        position: relative;
+        margin-bottom: 2vh;
+        width: 100%;
+    }
+
+    #project-section .img-container img {
+        object-fit: cover;
+    }
+
+    #project-section .pro-details {
+        justify-content: space-between;
+        font-size: 3vw;
+    }
+
+    #project-section .pro-details p {
+        width: 50%;
+    }
+
+    #project-section .pro-underline {
+        height: 2vh;
+    }
+
+    #project-section #pro2 {
+        width: 100%;
+    }
+
+    #project-section #pro2 .img-container {
+        height: 65vh;
+    }
+
+    /* PROJECT 3 & 4 */
+
+    #project-section #part2 {
+        justify-content: start;
+    }
+
+    #project-section #pro3 {
+        width: 100%;
+        position: static;
+    }
+
+    #project-section #pro3 .img-container {
+        height: 65vh;
+    }
+
+    #project-section #pro4 {
+        width: 100%;
+    }
+
+    #project-section #pro4 .img-container {
+        height: 65vh;
+    }
+
+    /* PROJECT 5 & 6 */
+    #project-section #part3 .pro {
+        width: 100%;
+        justify-content: space-between;
+        gap: 8vh;
+    }
+
+    #project-section #pro5 {
+        width: 100%;
+        position: static;
+    }
+
+    #project-section #pro5 .img-container {
+        height: 65vh;
+    }
+
+    #project-section #pro6 {
+        width: 100%;
+        position: static;
+    }
+
+    #project-section #pro6 .img-container {
+        height: 65vh;
+    }
+
+
+    /*.................... ABOUT SECTION ...................*/
+    #about-section {
+        width: 100%;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+    }
+
+    .heading2 .section-intro {
+        padding: 0px 5vw;
+        width: 100%;
+    }
+
+    .section-intro .main-content {
+        width: 100%;
+    }
+
+    .heading2 .section-title {
+        width: 100%;
+    }
+
+    .heading2 .underline {
+        height: 2.5vw;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.651);
+    }
+
+    .heading2 .section-title-h1 {
+        width: 100%;
+    }
+
+    #about-section .about {
+        margin-top: 6vh;
+    }
+
+    #about-section .about .line {
+        height: 5.5vw;
+        display: flex;
+        align-items: center;
+        font-size: 5vw;
+        line-height: 5vw;
+    }
+
+    #about-section .line .text {
+        display: inline-block;
+    }
+
+    #about-section .about-img {
+        flex-direction: column-reverse;
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    #about-section .img {
+        width: 100%;
+        height: 55vh;
+    }
+
+    #about-section .img-txt {
+        gap: 20px;
+        width: 85%;
+    }
+
+    #awards {
+        width: 100%;
+        top: 0vh;
+        right: 0vw;
+        margin-bottom: 10vh;
+    }
+
+    #awards li {
+        padding: 3vh 0px;
+    }
+
+    #awards li h5 {
+        font-size: 0.9rem;
+        width: 50%;
+    }
+
+    #awards li p {
+        font-size: 0.8rem;
+    }
+
+    /* MARQUEE */
+    #about-section .marque-sec .heading {
+        padding: 0px 5vw;
+        margin-bottom: 6vh;
+    }
+
+    #about-section #underline2 {
+        margin-bottom: 30px;
+    }
+
+    #about-section .marque-sec span {
+        font-size: 0.93rem;
+    }
+
+    #marque-container .marque,
+    #marque-container .marque span {
+        font-size: 10vw;
+        line-height: 11vw;
+    }
+
+
+    /*................. FOOTER ..................*/
+    footer {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        padding: 0px 5vw;
+        margin-top: 15vh;
+    }
+
+    footer .main-content {
+        width: 100%;
+    }
+
+    footer .section-title-h1 {
+        font-family: plain;
+        font-size: 10vw;
+        text-transform: uppercase;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    footer .section-title-h1 i {
+        font-size: 9vw;
+        color: transparent;
+        -webkit-text-stroke: 1px white;
+    }
+
+    footer .underline {
+        height: 1vw;
+        border-bottom: 1px solid white;
+    }
+
+    footer .social-link-container {
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 4vw;
+        padding-right: 8vw;
+        padding-top: 3vh;
+        gap: 50px;
+    }
+
+    footer .address {
+        padding: 0px;
+    }
+
+    footer .copyright {
+        padding: 3vw 0px;
+    }
+    .social-link-container .social-link,
+    .social-link-container .dummy-link {
+        font-size: 1.4rem;
+    }
 }
